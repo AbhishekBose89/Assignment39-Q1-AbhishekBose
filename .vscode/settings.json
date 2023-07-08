@@ -1,0 +1,14 @@
+{
+	"[python]": {
+		"editor.defaultFormatter": "ms-python.black-formatter"
+	},
+	"python.formatting.provider": "none",
+	"cSpell.words": [
+		"davyhwtl",
+		"djongo",
+		"ecommerce",
+		"nymz",
+		"qctzf",
+		"shoplane"
+	]
+}

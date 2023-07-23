@@ -55,6 +55,7 @@ class GetReviewByProduct(APIView):
 
 
 # class GetReviewByProduct(View):
+# permission_classes = [IsAuthenticated]
 #     def get(self, request, product_id):
 #         product = Product.objects.filter(id=product_id).first()
 #         if product:
@@ -67,6 +68,8 @@ class GetReviewByProduct(APIView):
 
 
 class GetOrderItemsByOrder(View):
+    permission_classes = [IsAuthenticated]
+
     def get(self, request, order_id):
         order = Order.objects.filter(id=order_id).first()
         if order:
@@ -91,6 +94,7 @@ class GetOrderItemsByOrder(View):
 
 
 # class GetOrderItemsByOrder(View):
+#   permission_classes = [IsAuthenticated]
 #     def get(self,request,order_id):
 #         order=Order.objects.filter(id=order_id).first()
 #         if order:
@@ -103,6 +107,8 @@ class GetOrderItemsByOrder(View):
 
 
 class SearchProductApi(View):
+    permission_classes = [IsAuthenticated]
+
     def get(self, request):
         query = request.GET.get("query", "")
         products = Product.objects.filter(name__icontains=query)
@@ -114,6 +120,8 @@ class SearchProductApi(View):
 
 
 class FilteredProduct(View):
+    permission_classes = [IsAuthenticated]
+
     def get(self, request):
         brand = request.GET.get("brand", "")
         min_price = request.GET.get("min", 0)
@@ -130,6 +138,8 @@ class FilteredProduct(View):
 
 
 class PaginatedProducts(View):
+    permission_classes = [IsAuthenticated]
+
     def get(self, request):
         page_num = request.GET.get("page", 1)
         products = Product.objects.all().order_by("id")
@@ -147,6 +157,8 @@ class PaginatedProducts(View):
 
 
 class SearchPaginatedProduct(View):
+    permission_classes = [IsAuthenticated]
+
     def get(self, request):
         name = request.GET.get("name", "")
         page_num = request.GET.get("page", 1)
@@ -168,6 +180,8 @@ class SearchPaginatedProduct(View):
 
 
 class GetFilterBooksByPrice(View):
+    permission_classes = [IsAuthenticated]
+
     def get(self, request):
         min_price = request.GET.get("min", 0)
         max_price = request.GET.get("max", 0)
@@ -182,6 +196,8 @@ class GetFilterBooksByPrice(View):
 
 
 class GetMultipleFilterProducts(View):
+    permission_classes = [IsAuthenticated]
+
     def get(self, request):
         category = request.GET.get("category", None)
         brand = request.GET.get("brand", None)
@@ -200,6 +216,8 @@ class GetMultipleFilterProducts(View):
 
 
 class MatchProducts(View):
+    permission_classes = [IsAuthenticated]
+
     def get(self, request):
         query = request.GET.get("query", None)
         products = Product.objects.filter(
